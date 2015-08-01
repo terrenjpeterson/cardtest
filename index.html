@@ -115,10 +115,11 @@
           <option value="fiveYears">60 Months</option>
         </select><br><br>
 
-        <span>{{bottomMessage}}</span>
+        <span>{{bottomMessage}}</span><br>
+
         <div ng-show="messageSentFlag=='show'">
-          <button ng-click="sendMessage()">Get Quote</button>
-          <a href="/index.html"><input name="cancel" type="button" value="Cancel"></a>
+          <button ng-click="sendMessage()" class="btn btn-info" role="button">Get Quote</button>
+          <a href="/index.html" class="btn btn-info" role="button">Cancel</a>
         </div>
         <div ng-show="messageSentFlag!='show'">
           <h2 class="button"><a href="/index.html">Return</a></h2>

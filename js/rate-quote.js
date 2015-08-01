@@ -8,7 +8,7 @@ function RateCtrl($scope, $http) {
   //
   $scope.sendMessage = function() {
     if ($scope.checkValidEMail() && $scope.checkAllFieldsEntered())
-      $scope.sendQuestion()
+      $scope.calcRate()
   };
 
   //
@@ -18,9 +18,9 @@ function RateCtrl($scope, $http) {
        return false;} 
     else
       {
-       if ($scope.contactTopic==null ||
+       if ($scope.purpose==null ||
            $scope.msg==null || $scope.msg=='')
-         {$scope.bottomMessage = 'Please describe the topic in the fields above';
+         {$scope.bottomMessage = 'Please describe what the purpose of the loan will be so we can better calculate the rate.';
           return false;}
        else
          return true
@@ -39,5 +39,9 @@ function RateCtrl($scope, $http) {
         $scope.errorMessage = 'E-Mail Address Invalid';
   };
 
+  //
+  $scope.calcRate = function() {
+    $scope.bottomMessage = 'it works';
+  };
   //
 }
