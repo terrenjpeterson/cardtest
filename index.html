@@ -51,7 +51,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="index.html">About Us</a></li>
                     <li><a href="index.html">Latest News</a></li>
-                    <li><a href="index.html">Current Programs</a></li>
+                    <li><a href="index.html">Leadership Team</a></li>
                     <li><a href="index.html">Community Involvement</a></li>
                     <li><a href="index.html">Privacy Policy</a></li>
                   </ul>
@@ -81,17 +81,17 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img src="https://s3-us-west-2.amazonaws.com/novaphotos/logo.png" width="300" height="150">
+          <img src="https://s3.amazonaws.com/cloud-training/quote.png" width="300">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Rate Quote Generator</h2>
+          <h2 class="featurette-heading">Rate Generator</h2>
         </div>
       </div>
 
       <div ng-controller="RateCtrl">
 
-        <h2>Contact Us</h2>
-        <p>Are you interested in being contacted about the project?  Please fill out the brief form so we can have the best person reach out to you with more information.</p>
+        <h2>Interested</h2>
+        <p>Looking for a fixed installment loan?  Give us just a few pieces of information, and we'll provide you an initial quote for a fixed-term loan.</p>
 
         <h3>Name and e-Mail Address</h3>
         <span><input type="text" class="input-medium" ng-model="firstName" placeholder="First"></span>
@@ -99,17 +99,25 @@
         <input type="text" ng-model="emailAddress" placeholder="you@gmail.com"></input><br>
         <span>{{errorMessage}}</span><br>
 
-        <h3>Topic</h3>
-        <span><select class="input-medium" ng-model="contactTopic" id="topic">
-          <option value="MailingList">Mailing List</option>
-          <option value="GeneralSupport">General Queustion</option>
-          <option value="Partnership">Partnership Opportunity</option>
-          <option value="MediaRequest">Media Request</option>
+        <h3>Loan Purpose</h3>
+        <span><select class="input-medium" ng-model="loanPurpose" id="purpose">
+          <option value="Boat">Buying a Boat</option>
+          <option value="Vacation">Once in a Lifetime Vacation</option>
+          <option value="Remodel">Home Remodel</option>
+          <option value="Other">Other</option>
+        </select><br><br>
+
+        <h3>Payback Term</h3>
+        <span><select class="input-medium" ng-model="loanTerm" id="term">
+          <option value="twoYears">24 Months</option>
+          <option value="threeYears">36 Months</option>
+          <option value="fourYears">48 Months</option>
+          <option value="fiveYears">60 Months</option>
         </select><br><br>
 
         <span>{{bottomMessage}}</span>
         <div ng-show="messageSentFlag=='show'">
-          <button ng-click="sendMessage()">Send</button>
+          <button ng-click="sendMessage()">Get Quote</button>
           <a href="/index.html"><input name="cancel" type="button" value="Cancel"></a>
         </div>
         <div ng-show="messageSentFlag!='show'">
