@@ -64,9 +64,9 @@ function RateCtrl($scope, $http) {
       {adjustedRate = adjustedRate + 2.50;}
     else if (purpose == "Vacation")
       {adjustedRate = adjustedRate + 4.00;}
-    else if (purpose = "Remodel")
+    else if (purpose == "Remodel")
       {adjustedRate = adjustedRate + 1.25;}
-    else if (purpose = "Other")
+    else if (purpose == "Other")
       {adjustedRate = adjustedRate + 5.75;}
     else
       {adjustedRate = adjustedRate + 7.00;}
