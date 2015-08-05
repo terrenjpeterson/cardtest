@@ -56,8 +56,20 @@ function RateCtrl($scope, $http) {
   $scope.calcRate = function() {
 
     var baseRate = 9.99;
+    var purpose = $scope.loanPurpose;
     var duration = Number($scope.loanTerm);
     var adjustedRate = (baseRate - (duration/12));
+
+    if (purpose == "Boat")
+      {adjustedRate = adjustedRate + 2.50;}
+    else if (purpose == "Vacation")
+      {adjustedRate = adjustedRate + 4.00;}
+    else if (purpose = "Remodel")
+      {adjustedRate = adjustedRate + 1.25;}
+    else if (purpose = "Other")
+      {adjustedRate = adjustedRate + 5.75;}
+    else
+      {adjustedRate = adjustedRate + 7.00;}
 
     $scope.bottomMessage = String(adjustedRate);
 
