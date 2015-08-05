@@ -3,13 +3,22 @@ function RateCtrl($scope, $http) {
   $scope.bottomMessage = '';
   $scope.messageSentFlag = 'show';
   $scope.showRateFlag = false;
+  $scope.transCompleteFlag = false;
 
   // 
-  // this sends in a password reset request
+  // this function validates fields entered in the page, and if successful, calculates a rate for a loan
   //
   $scope.getQuote = function() {
     if ($scope.checkValidEMail() && $scope.checkAllFieldsEntered())
       $scope.calcRate()
+  };
+
+  //
+  $scope.processLoan = function() {
+    $scope.transCompleteFlag = true;
+    $scope.showRateFlag = false;
+
+    $scope.bottomMessage = 'Thanks for your application.  The loan is approved';
   };
 
   //

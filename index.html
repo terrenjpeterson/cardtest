@@ -115,7 +115,7 @@
           <option value="60">60 Months</option>
         </select>
 
-        <div ng-show="showRateFlag==false">
+        <div ng-show="showRateFlag==false && transCompleteFlag==false">
           <span>{{bottomMessage}}</span><br>
           <br>
           <button ng-click="getQuote()" class="btn btn-info" role="button">Get Quote</button>
@@ -125,8 +125,13 @@
         <div ng-show="showRateFlag==true">
           <h2>Rate to Offer: {{bottomMessage}}</h2>
           <br>
-          <a href="/index.html" class="btn btn-info" role="button">Accept Quote</a>
+          <button ng-click="processLoan()" class="btn btn-info" role="button">Accept Quote</button>
           <a href="/index.html" class="btn btn-info" role="button">No Thanks</a>
+        </div>
+
+        <div ng-show="transCompleteFlag==true">
+          <br>
+          <span>{{bottomMessage}}</span>
         </div>
 
       </div>
