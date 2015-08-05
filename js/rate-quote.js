@@ -2,11 +2,12 @@ function RateCtrl($scope, $http) {
   $scope.errorMessage = '';
   $scope.bottomMessage = '';
   $scope.messageSentFlag = 'show';
+  $scope.showRateFlag = false;
 
   // 
   // this sends in a password reset request
   //
-  $scope.sendMessage = function() {
+  $scope.getQuote = function() {
     if ($scope.checkValidEMail() && $scope.checkAllFieldsEntered())
       $scope.calcRate()
   };
@@ -18,12 +19,15 @@ function RateCtrl($scope, $http) {
        return false;} 
     else
       {
-       if ($scope.purpose==null ||
-           $scope.msg==null || $scope.msg=='')
+       if ($scope.loanPurpose==null)
          {$scope.bottomMessage = 'Please describe what the purpose of the loan will be so we can better calculate the rate.';
           return false;}
        else
-         return true
+         if ($scope.loanTerm==null)
+           {$scope.bottomMessage = 'Please provide a length for the loan so that we can better calculate a rate to offer.';
+            return false;}
+         else
+           return true
       }
   };
 
@@ -39,9 +43,17 @@ function RateCtrl($scope, $http) {
         $scope.errorMessage = 'E-Mail Address Invalid';
   };
 
-  //
+  // calculate the rate - all field validation has been passed
   $scope.calcRate = function() {
-    $scope.bottomMessage = 'it works';
+
+    var baseRate = 9.99;
+    var duration = Number($scope.loanTerm);
+    var adjustedRate = (baseRate - (duration/12));
+
+    $scope.bottomMessage = String(adjustedRate);
+
+    $scope.showRateFlag = true;
+
   };
   //
 }
